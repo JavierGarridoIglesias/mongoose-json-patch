@@ -1,7 +1,7 @@
 {
-  "name": "mongoose-json-patch",
+  "name": "mongoose-json-patch-upd",
   "version": "1.0.2",
-  "description": "Adds JSON Patch (RFC 6902) support to Mongoose models.",
+  "description": "Adds JSON Patch (RFC 6902) support to Mongoose models. forked from https://github.com/martindale/mongoose-json-patch and updated",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

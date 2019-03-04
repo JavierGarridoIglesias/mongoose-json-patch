@@ -1,6 +1,10 @@
 # mongoose-json-patch
 Adds JSON Patch (RFC 6902) support to Mongoose models.
 
+I have just published this package to be able to update the dependencies. All credits to the original author(s)
+Please take into account the warning published in the original package, this package is deprecated:
+https://www.npmjs.com/package/mongoose-json-patch
+
 ###**[Don't patch like an idiot.](http://williamdurand.fr/2014/02/14/please-do-not-patch-like-an-idiot/)**
 
 ## Usage
