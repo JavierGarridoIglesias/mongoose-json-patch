@@ -62,7 +62,7 @@ module.exports = exports = function checkPermissions(schema, options) {
 			for (i = 0; i < patches.length; i++) {
 				var patch = patches[i];
 				if(patch.op == 'test') {
-					var success = jsonpatch.apply(this, [].concat(patch), true);
+					var success = jsonpatch.applyOperation(this, [].concat(patch), true);
 					if(!success) {
 						return callback(new Error('The json-patch test op at index [' + i + '] has failed. No changes have been applied to the document.'));
 					}
@@ -72,16 +72,16 @@ module.exports = exports = function checkPermissions(schema, options) {
 		    // Dirty fix for mongoose-json-patch #3
 		    // https://github.com/winduptoy/mongoose-json-patch/issues/3
 		    for (i = 0; i < patches.length; ) {
-				var p = patches[i];
-				if (p.op === 'remove') {
-			    	_.set(this, p.path.substring(1).replace(/\//g, '.'), undefined);
-			    	_.pullAt(patches, i);
-				} else {
-			    	i++;
-				}
+					var p = patches[i];
+					if (p.op === 'remove') {
+							_.set(this, p.path.substring(1).replace(/\//g, '.'), undefined);
+							_.pullAt(patches, i);
+					} else {
+							i++;
+					}
 		    }
 
-			jsonpatch.apply(this, patches, true);
+			jsonpatch.applyPatch(this, patches, true);
 		} catch(err) {
 			return callback(err);
 		}
